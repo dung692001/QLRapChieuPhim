@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "DenyDelete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong></strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        @*@Html.ActionLink("Create New", "Create", "Phim")*@
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="popup" id="popup">
+                    <h2>Thông báo!</h2>
+                    <p>Phòng này đang có buổi chiếu bạn hãy xóa ở buổi chiếu trước.</p>
+                    <a href="@Url.Action("Index","PhongChieu")" class="btn btn-sm btn-info"><i class="fas fa-long-arrow-alt-left" s></i></a>
+
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

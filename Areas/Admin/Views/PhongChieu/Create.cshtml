@@ -1,0 +1,72 @@
+﻿@model BaiTapLon_Web.Models.Entities.PhongChieu
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content my-2">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Thêm phòng</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            @*@Html.ActionLink("Create New", "Create", "Phim")*@
+                            <button class="btn btn-sm btn-success" type="submit" name="create"><i class="fas fa-save"></i></button>
+                            <a href="@Url.Action("Index","PhongChieu")" class="btn btn-sm btn-info"><i class="fas fa-long-arrow-alt-left" s></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label>Mã phòng<span class="text-danger">(*)</span></label>
+                                @Html.EditorFor(model => model.MaPhong, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Tên phòng<span class="text-danger">(*)</span></label>
+                                @Html.EditorFor(model => model.TenPhong, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TenPhong, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>Mã rạp<span class="text-danger">(*)</span></label>
+                                @Html.DropDownList("MaRap", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MaRap, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Tổng ghế<span class="text-danger">(*)</span></label>
+                                @Html.EditorFor(model => model.TongGhe, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TongGhe, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+}
+
+
+

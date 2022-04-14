@@ -1,0 +1,106 @@
+﻿@using BaiTapLon_Web.CurrentUser
+<header class="header">
+    <div class="grid wide">
+        <div class="header__banner">
+            <img class="header__banner-first" src="~/Content/images/banner.jpg" alt="banner">
+        </div>
+
+        <nav class="header__navbar">
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a href="#">
+                        <img src="~/Content/images/icon_lottecinemaapp.png" alt="">
+                        <span>Lotte Cinema App</span>
+                    </a>
+
+                </li>
+                <li class="header__navbar-item">
+                    <a href="#">
+                        <i class="header__navbar-icon fab fa-facebook"></i>
+                        <span>Lotte Cinema Facebook</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="header__navbar-list">
+                @*Chưa đăng nhập*@
+                @if (String.IsNullOrEmpty(CurrentUser.MaKH) == true)
+                {
+                    <li class="header__navbar-item" id="navbar-list-dang-nhap">
+                        <a href="~/User/DangNhap" class="header__navbar-item-link">
+                            <span class="navbar-dangnhap">Đăng nhập</span>
+
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="navbar-tenkhach">
+                        Xin chào @CurrentUser.TenKhachHang
+                    </li>
+                    <li class="header__navbar-item">
+                        <a href="~/User/DangXuat" class="header__navbar-item-link" id="navbar-list-dang-xuat">
+                            <span class="navbar-dangxuat">Đăng xuất</span>
+                        </a>
+                    </li>
+                }
+
+
+                <li class="header__navbar-item">
+                    <a href="" class="header__navbar-item-link">
+                        <span>Thẻ thành viên</span>
+                    </a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="" class="header__navbar-item-link">
+                        <span>Hỗ trợ khách hàng</span>
+                    </a>
+                </li>
+
+                @*<li class="header__navbar-item">
+                    <a href="~/QuanLy/DangNhap" class="header__navbar-item-link">
+                        <span>Đăng nhập Admin</span>
+                    </a>
+                </li>*@
+            </ul>
+        </nav>
+
+        <div class="header__banner">
+            <img class="header__banner-second" src="~/Content/images/banner2.png" alt="banner2">
+        </div>
+
+        <div class="loginInfo">
+            <span>Xin chào Trọng Hiệp!</span>
+        </div>
+
+        <nav class="app__content-nav">
+            <ul class="app__content-nav-list">
+                <li class="app__content-nav-item app__content-nav-item--separate ">
+                    <a href="#" class="app__content-nav-link">
+                        <span>SHOP QUÀ TẶNG</span>
+                    </a>
+                </li>
+                <li class="app__content-nav-item app__content-nav-item--separate ">
+                    <a href="~/BaiTapLon/MuaVe" class="app__content-nav-link">
+                        <span>MUA VÉ</span>
+                    </a>
+                </li>
+                <li class="app__content-nav-item app__content-nav-item--separate ">
+                    <a href="~/BaiTapLon/Index" class="app__content-nav-link app__content-nav-active">
+                        <span>PHIM</span>
+                    </a>
+                </li>
+                <li class="app__content-nav-item app__content-nav-item--separate ">
+                    <a href="#" class="app__content-nav-link">
+                        <span>RẠP CHIẾU PHIM</span>
+                    </a>
+                </li>
+                <li class="app__content-nav-item ">
+                    <a href="#" class="app__content-nav-link">
+                        <span>KHUYẾN MÃI</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

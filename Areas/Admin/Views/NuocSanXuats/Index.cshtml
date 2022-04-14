@@ -1,0 +1,189 @@
+﻿@model IEnumerable<BaiTapLon_Web.Models.Entities.NuocSanXuat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger text-uppercase">Danh sách nước sản xuất</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+
+                        <button class="btn-success" id="btnAdd">
+                            <img src="~/Public/images/Icon/plus.png" />
+                        </button>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body text-center">
+
+
+                <table class="table table-bordered table-striped" id="myTable">
+                    <thead>
+
+                        <tr>
+                            <th>
+                                Mã Nước Sản Xuất
+                            </th>
+                            <th>
+                                Tên Nước Sản Xuất
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblNuocSX">
+                    </tbody>
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalNuocSX">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="panel panel-primary">
+                <div class="panel-heading ">
+                    <h4 class="panel-title py-3 text-danger text-uppercase text-center" id="modaltitle" style="background-color:bisque; font-family:'Book Antiqua';"></h4>
+                </div>
+                <div class="container ">
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Mã Nước Sản Xuất<span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control text-center " style="width:300px; margin-left:100px;" id="manuocsx" placeholder="Mã Nước Sản Xuất  " />
+                                <span id="manuocsx_err" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label>Tên Nước Sản Xuất<span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control text-center" style="width:300px; margin-left:100px;" id="tennuocsx" placeholder="Tên Nước Sản Xuất" />
+                                <span id="tennuocsx_err" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnSubmitAdd" style="margin-right:90px;">Xác nhận</button>
+                <button type="button" class="btn btn-success" id="btnSubmitEdit" style="margin-right:90px;">Xác nhận</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-right:120px;">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalChiTietNuocSX">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="color:aqua;">
+                    <h4 class="panel-title py-3 text-danger text-uppercase text-center" style="background-color:cornsilk;">Chi tiết nước sản xuất</h4>
+                </div>
+                <div class="container py-3">
+                    <table class="table table-bordered text-center ">
+                        <thead>
+                            <tr>
+                                <th>Mã Nước Sản Xuất</th>
+                                <th>Tên nước sản xuất </th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="text-center" id="tblChiTiet">
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modalXoa">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="panel panel-default text-center" style="font-family:Bahnschrift">
+                <div class="panel-heading">
+                    <h4 class="panel-title py-3 text-danger text-uppercase text-center" style="background-color:bisque;">Xóa</h4>
+
+                </div>
+
+                <p>Bạn có muốn xóa nước sản xuất này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" style="margin-right:90px;" id="btnDelete">Xác nhận</button>
+                <button type="button" class="btn btn-secondary" style="margin-right:120px;" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalHienThiLoi">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="panel panel-default text-center" style="font-family:Bahnschrift">
+                <div class="panel-heading">
+                    <h4 class="panel-title py-3 text-danger text-uppercase text-center" style="background-color:bisque;">Thông báo</h4>
+
+                </div>
+
+                <p>Mã nước sản xuât này đã có!</p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" style="margin-right:220px;" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalHienThiLoiKhiXoa">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="panel panel-default text-center" style="font-family:Bahnschrift">
+                <div class="panel-heading">
+                    <h4 class="panel-title py-3 text-danger text-uppercase text-center" style="background-color:bisque;">Thông báo</h4>
+
+                </div>
+
+                <p>Bạn không thể xóa nước sản xuất này được! Nếu muốn xóa vui lòng sang mục phim để xóa phim do nước sản xuất này sản xuất!!</p>
+            </div>
+            <div class="modal-footer">
+                <a href="@Url.Action("Index", "Phim")" class="btn btn-sm btn-info">
+
+
+                    <i class="fa-solid fa-film"></i>    Phim
+                </a>
+                <button type="button" class="btn btn-secondary" style="margin-right:120px;" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script src="~/Public/js/jqueryNuocSX.js"></script>
+}
+

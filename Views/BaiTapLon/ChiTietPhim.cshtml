@@ -1,0 +1,46 @@
+﻿@using BaiTapLon_Web.Models.Entities
+@model  BaiTapLon_Web.Models.Entities.Phim
+@{
+    ViewBag.Title = "ChiTietPhim";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="app__content-list">
+    <div class="row chitietphim">
+        <div class="col-md-3">
+            <div class="card">
+                <img src="~/Content/images/@Model.Anh" alt="MatBiec">
+            </div>
+            <div class="chitietphim-datve">
+                <a class="chitietphim-btn" href="~/BaiTapLon/MuaVe">
+                    Đặt vé
+                </a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <p class="card-name-phim"><b>@Model.TenPhim</b></p>
+                <span class="card-xephang">
+                    <b>Xem xếp hạng</b>
+                    <div class="home-product-item__rating">
+                        <i class="home-product-item__star--gold fas fa-star"></i>
+                        <i class="home-product-item__star--gold fas fa-star"></i>
+                        <i class="home-product-item__star--gold fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </span>
+                <p><b>Xếp hạng     </b>[Trong nước] 13 tuổi trở lên</p>
+                <p><b>Ngày phát hành     </b>@Model.NgayKhoiChieu</p>
+                <p> <b>Thông tin cơ bản    </b>  Thriller/Criminal/Horror Australia&Others (@Model.ThoiLuong)</p>
+                <p> <b>Loại   </b>  2D | Normal | Normal sound | Phụ đề</p>
+            </div>
+        </div>
+
+        <div class="motaphim">
+            <h2> <b>Tóm tắt</b></h2>
+            <p>Tác phẩm đến từ "bậc thầy kinh dị" Tây Ban Nha Juega Conmigo. Khi trò trốn tìm biến tướng thành cuộc truy đuổi rùng rợn của “bà ba bị”. Sofía là một vú nuôi trẻ tuổi vừa bắt đầu công việc trông trẻ trong một gia đình giàu có. Thế nhưng, cô không hề hay biết hai đứa nhóc nghịch ngợm đã vô tình mời gọi một thế lực tà ác đến “chơi cùng”. Vào một đêm cha mẹ lũ trẻ vắng nhà, họ phải đối mặt với nỗi kinh hoàng do ác quỷ mang tới. Lấy cảm hứng từ “bà ba bị” Mormo nổi tiếng trong văn hóa Hy Lạp và Mexico, Năm, Mười, Mười Lăm sẽ gây ám ảnh cho khán giả đến từ những trò chơi con trẻ biến tướng thành cuộc truy đuổi ghê rợn.</p>
+        </div>
+    </div>
+</div>
+

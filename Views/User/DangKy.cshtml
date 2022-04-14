@@ -1,0 +1,87 @@
+﻿@model BaiTapLon_Web.Models.Entities.KhachHang
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@if (ViewBag.error != "")
+{
+    <h2 class="text-center text-danger" style="font-size : 1.5rem">@ViewBag.error</h2>
+}
+
+<div class="container-dangky">
+    @using (Html.BeginForm("DangKy", "User", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <h1>Dragging Register Form</h1>
+
+        <div class="agile-its">
+            <div class="w3layouts">
+                <div class="photos-upload-view">
+                    @*<form id="upload" action="index.html" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />*@
+
+                    <div class="agileinfo-row">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="ferry ferry-from">
+                            <label>User Name</label>
+                            @Html.EditorFor(model => model.TenKhachHang, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name" } })
+                            @Html.ValidationMessageFor(model => model.TenKhachHang, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="ferry ferry-from">
+                            <label>Căn cước công dân</label>
+                            @Html.EditorFor(model => model.SoCMND, new { htmlAttributes = new { @class = "form-control", @placeholder = "Identification" } })
+                            @Html.ValidationMessageFor(model => model.SoCMND, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="ferry ferry-from">
+                            <label>Phone Number</label>
+                            @Html.EditorFor(model => model.DienThoai, new { htmlAttributes = new { @class = "form-control", @placeholder = "Phone Number" } })
+                            @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="ferry ferry-from">
+                            <label>Address</label>
+                            @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control", @placeholder = "Address" } })
+                            @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="ferry ferry-from">
+                            <label>@Html.LabelFor(m => m.Email)</label>
+                            @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="ferry ferry-from">
+                            <label>@Html.LabelFor(m => m.Password)</label>
+                            @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                        @*<div class="ferry ferry-from">
+                            <label>@Html.LabelFor(m => m.ConfirmPassword)</label>
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>*@
+
+                    </div>
+                    <div class="wthree-text">
+                        <label class="anim">
+                            <input type="checkbox" class="checkbox" required="">
+                            <span>Send me latest updates</span>
+                        </label>
+                        <div class="wthreesubmitaits">
+                            <input type="submit" name="submit" value="Register">
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+
+
+                </div>
+                <div class="clear"></div>
+                <div class="social">
+                    <a href="#" class="f">F <span> : <span> Login With Facebook </a>
+                    <a href="#" class="t">T <span> : <span> Login With Twitter </a>
+                    <div class="clear"> </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

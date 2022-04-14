@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Movie Seat Booking";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="master">
+    <div class="movie-container">
+        <label> Select a movie:</label>
+        <select id="movie">
+            <option value="0">--Please Select a Movie--</option>
+        </select>
+    </div>
+    <div class="room-container">
+        <label> Select a room:</label>
+        <select id="room">
+            <option value="0">--Please Select a Room--</option>
+        </select>
+    </div>
+    <div class="room-container">
+        <label> Select a screening:</label>
+        <select id="screening">
+            <option value="0">--Please Select a Screening--</option>
+        </select>
+    </div>
+
+    <ul class="showcase">
+        <li>
+            <div class="seat">A0</div>
+            <small>Available</small>
+        </li>
+        <li>
+            <div class="seat selected">A0</div>
+            <small>Selected</small>
+        </li>
+        <li>
+            <div class="seat sold">A0</div>
+            <small>Sold</small>
+        </li>
+    </ul>
+    <div class="tcontainer">
+    </div>
+
+    <p class="text">
+        You have selected <span id="count">0</span> seat for a price of
+        VND.<span id="total">0</span>
+    </p>
+    <div class="btn-order"><button id="order" class="order" onclick="onClickEventOrder();" disabled>ORDER</button></div>
+</div>
+<script src="~/Scripts/script/muave.js"></script>
+

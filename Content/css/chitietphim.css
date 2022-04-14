@@ -1,0 +1,60 @@
+.home-product-item__rating {
+    /* font-size: 0.8rem; */
+    /* Sao nhỏ đi */
+    /* transform: scale(0.7); */
+    /* transform-origin: right; */
+    /* hoặc zoom: 1; */
+    color: #d5d5d5;
+    margin-left: auto;
+}
+
+.home-product-item__star--gold {
+    color: var(--star-gold-color);
+}
+
+.chitietphim .card{
+    font-family: 'Arial', 'Helvetica', 'sans-serif';
+    border: 0px;
+    -webkit-box-shadow: 0px !important ;
+    -moz-box-shadow: 0px  ;
+    box-shadow: 0px  ;
+    font-size: 1.5rem;
+}
+
+.card-xephang {
+    display: flex;
+}
+
+.home-product-item__rating {
+    margin-left: 10px;
+}
+
+.card-name-phim {
+    font-size: 2.5rem;
+}
+
+.chitietphim-btn {
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    display: block;
+    text-align: center;
+    background-color: antiquewhite;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #000;
+}
+
+.chitietphim-btn:hover {
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+}
+
+.motaphim {
+    margin-top: 16px;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    font-weight: 350;
+}

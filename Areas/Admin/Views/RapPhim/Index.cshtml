@@ -1,0 +1,115 @@
+﻿@model IEnumerable<BaiTapLon_Web.Models.Entities.RapPhim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+@section header {
+
+    <link href="~/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer {
+
+    <script src="~/Public/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger text-uppercase">Danh sách các chi nhánh</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="@Url.Action("Create","RapPhim")" class="btn btn-sm btn-success">
+
+                            <img src="~/Public/images/Icon/plus.png" />  Thêm
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped " id="myTable">
+                    <thead class="text-center">
+                        <tr>
+                            <th>
+                                Mã rạp
+                            </th>
+                            <th>
+                                Tên rạp
+                            </th>
+                            <th style="width:200px;">
+                                Địa chỉ
+                            </th>
+
+                            <th>
+                                Điện thoại
+                            </th>
+
+
+
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MaRap)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenRap)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DiaChi)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DienThoai)
+                                </td>
+
+
+                                <td>
+                                    <a href="~/Admin/RapPhim/Details/@item.MaRap" class="btn btn-sm btn-danger">
+                                        <img src="~/Public/images/icon/details.png" />
+
+                                    </a>
+                                    <a href="~/Admin/RapPhim/Edit/@item.MaRap" class="btn btn-sm btn-danger">
+                                        <img src="~/Public/images/icon/edit.png" />
+
+                                    </a>
+                                    <a href="~/Admin/RapPhim/Delete/@item.MaRap" class="btn btn-sm btn-danger">
+                                        <img src="~/Public/images/icon/del.png" />
+
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+            <!-- /.card-body -->
+
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>

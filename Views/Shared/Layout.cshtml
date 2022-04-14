@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lotte Cinema</title>
+    <!-- link reset CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="~/fonts/fonts/fontawesome-free-5.15.3-web/css/all.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4866413e08.js" crossorigin="anonymous"></script>
+
+
+
+    @*Mua ves anhDuc*@
+    <link rel="stylesheet" href="~/Content/css/muave.css" />
+    <script type="text/javascript" src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+    @*Register*@
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!-- custom css file -->
+    <link rel="stylesheet" href="~/Content/css/register.css">
+    <!-- //custom css file -->
+    @*Dang nhap*@
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="~/Content/css/login.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="~/Content/css/base.css">
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    <link rel="stylesheet" href="~/Content/css/chitietphim.css">
+
+    <script src="~/Scripts/script/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link href="~/Content/css/chinhsua.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div class="app">
+
+        @Html.Partial("Header")
+
+        <div class="app__container">
+            <div class="grid wide">
+                @RenderBody()
+
+            </div>
+        </div>
+        @Html.Partial("Footer")
+    </div>
+
+    <!-- Login form  -->
+    <div class="modal" id="openFormDangNhap">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+            <div class="auth-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Login</h3>
+                        <span class="auth-form__switch-btn btn-dang-ki-open">Register</span>
+                    </div>
+
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input account-dangnhap" placeholder="Email">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input password-dangnhap" placeholder="Password ">
+                        </div>
+                    </div>
+
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="" class="auth-form__link auth-form__help-forgot">Forgot password</a>
+                            <span class="auth-form__help--separate"></span>
+                            <a href="" class="auth-form__link ">Help?</a>
+                        </div>
+                    </div>
+
+                    <div class="auth-form__controls">
+                        <button class="btn btn--normal auth-form__controls-back">Back</button>
+                        <button class="btn btn--primary btn-dangnhap">Login</button>
+                    </div>
+                </div>
+
+                <div class="auth-form__socials">
+                    <a class=" auth-form__socials--facebook btn btn--size-s btn--with-icon">
+                        <i class=" auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">Connect with Facebook</span>
+                    </a>
+                    <a class="auth-form__socials--google btn btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">Connect with Google</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal layout  -->
+    <div class="modal" id="openFormDangKi">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+            <!-- Register form  -->
+            <div class="auth-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Register</h3>
+                        <span class="auth-form__switch-btn btn-dang-nhap-open">Login</span>
+                    </div>
+
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email ">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Password ">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Re-enter password">
+                        </div>
+                    </div>
+
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            By signing up, you agree to Lotte about
+                            <a href="" class="auth-form__text-link">Terms of Service</a> &
+                            <a href="" class="auth-form__text-link">Privacy Policy</a>
+                        </p>
+                    </div>
+
+                    <div class="auth-form__controls">
+                        <button class="btn btn--normal auth-form__controls-back">Back</button>
+                        <button class="btn btn--primary">Register</button>
+                    </div>
+                </div>
+
+                <div class="auth-form__socials">
+                    <a class=" auth-form__socials--facebook btn btn--size-s btn--with-icon">
+                        <i class=" auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-title">Connect with Facebook</span>
+                    </a>
+                    <a class="auth-form__socials--google btn btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-title">Connect with Google</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="~/Scripts/script/btndatve.js"></script>
+<!-- js files -->
+<script src="~/Scripts/register/filedrag.js"></script>
+<script type="text/javascript" src="~/Scripts/register/jquery.min.js"></script>
+<!-- //js files -->
+<!-- fontawesome v5-->
+<script src="~/Scripts/login/fontawesome.js"></script>
+</html>

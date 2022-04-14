@@ -1,0 +1,96 @@
+﻿@model BaiTapLon_Web.Models.Entities.BuoiChieu
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content my-2">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Thêm buổi chiếu</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            @*@Html.ActionLink("Create New", "Create", "Phim")*@
+                            <button class="btn btn-sm btn-success" type="submit" name="create"><i class="fas fa-save"></i></button>
+                            <a href="@Url.Action("Index", "BuoiChieu")" class="btn btn-sm btn-info"><i class="fas fa-long-arrow-alt-left" s></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class=" col-md-7">
+                            
+
+                            <div class="form-group">
+                                <label>Tên phim<span class="text-danger">(*)</span></label>
+                                @Html.DropDownList("MaPhim", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MaPhim, "", new { @class = "text-danger" })
+
+                            </div>
+                            
+                                <div class="form-group">
+                                    <label>Tên rạp<span class="text-danger">(*)</span></label>
+                                    @Html.DropDownList("MaRap", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MaRap, "", new { @class = "text-danger" })
+                                </div>
+
+                                @*<div class="form-group">
+                                    <label>Tên phòng<span class="text-danger">(*)</span></label>
+
+                                    @Html.DropDownList("MaPhong", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })
+                                </div>*@
+                                    @*<label>Tên phòng<span class="text-danger">(*)</span></label>      *@                            
+                                    @Html.Action("ChonPhong", "BuoiChieu")
+                                    @*@Html.DropDownList("MaPhong", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })*@
+                        </div>
+                        <div class=" col-md-5">
+
+                            <div class="form-group">
+                                <label>Ngày chiếu<span class="text-danger">(*)</span></label>
+                                @{
+                                    DateTime ngayHienTai = DateTime.Now;
+                                    <input type="date" name="NgayChieu" value="@ngayHienTai.ToString("yyyyy-MM-dd")" class="form-control" />
+                                    @Html.ValidationMessageFor(model => model.NgayChieu, "", new { @class = "text-danger" })
+                                }
+                                @* @Html.EditorFor(model => model.NgayKetThuc, new { htmlAttributes = new { @class = "form-control" } })*@
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>Giờ chiếu <span class="text-danger">(*)</span></label>
+                                @Html.EditorFor(model => model.GioChieu, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.GioChieu, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>*@
+                </div>
+
+
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+}
+<script src="~/Public/dist/js/RoomID.js"></script>

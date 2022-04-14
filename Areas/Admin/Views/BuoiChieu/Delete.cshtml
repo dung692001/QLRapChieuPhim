@@ -1,0 +1,99 @@
+﻿@model BaiTapLon_Web.Models.Entities.BuoiChieu
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content my-2">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Danh mục buổi chiếu</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            @*@Html.ActionLink("Create New", "Create", "Phim")*@
+
+                            <button class="btn btn-sm btn-danger" type="submit" name="Delete"><i class="fas fa-trash"></i></button>
+                            <a href="~/Admin/BuoiChieu/Edit/@Model.MaBuoiChieu" class="btn btn-sm btn-success">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a href="@Url.Action("Index","BuoiChieu")" class="btn btn-sm btn-info"><i class="fas fa-long-arrow-alt-left" s></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body my-3">
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th style="width:250px">Tên trường</th>
+                            <th>Nội dung</th>
+                        </tr>
+
+                        <tr>
+                            <td>Tên Phim</td>
+                            <td>@Html.DisplayFor(model => model.Phim.TenPhim)</td>
+                        </tr>
+
+                        
+
+                        <tr>
+                            <td>Tên rạp</td>
+                            <td>@Html.DisplayFor(model => model.RapPhim.TenRap)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tên phòng</td>
+                            <td>@Html.DisplayFor(model => model.PhongChieu.TenPhong)</td>
+                        </tr>
+                        @{
+                            string NgayKhoiChieuStr = @Model.NgayChieu.ToString().Split(' ')[0]; //loại bỏ phần time đằng sau
+                            string year = NgayKhoiChieuStr.Split('/')[2];
+                            string month = NgayKhoiChieuStr.Split('/')[0].PadLeft(2, '0'); //Thêm số 0 đằng trc nếu month ko đủ 2 kí tự
+                            string day = NgayKhoiChieuStr.Split('/')[1].PadLeft(2, '0');//Thêm số 0 đằng trc nếu day ko đủ 2 kí tự
+                            string inputDateNgayKhoiChieu = year + "-" + month + "-" + day;
+
+                            <tr>
+                                <td> Ngày chiếu</td>
+                                <td>
+                                    @NgayKhoiChieuStr
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>Giờ chiếu</td>
+                            <td>@Html.DisplayFor(model => model.GioChieu)</td>
+                        </tr>
+                        <tr>
+                            <td>Giá vé</td>
+                            <td>@Html.DisplayFor(model => model.GiaVe)</td>
+                        </tr>
+                        <tr>
+                            <td>Số vé đã bán</td>
+                            <td>@Html.DisplayFor(model => model.SoVeDaBan)</td>
+                        </tr>
+                        <tr>
+                            <td>Tổng tiền</td>
+                            <td>@Html.DisplayFor(model => model.TongTien)</td>
+                        </tr>
+
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+ }

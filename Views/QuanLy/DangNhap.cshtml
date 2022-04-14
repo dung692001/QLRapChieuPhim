@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/LayoutLogin.cshtml";
+}
+
+@if (ViewBag.error != "")
+{
+    <h2 class="text-center text-danger" style="font-size : 1.5rem">@ViewBag.error</h2>
+}
+<div class="signinform">
+    <h1>Service Login Form</h1>
+    <!-- container -->
+    <div class="container">
+        <!-- main content -->
+        <div class="w3l-form-info">
+            <div class="w3_info">
+                <h2>Login</h2>
+                @using (Html.BeginForm("DangNhap", "QuanLy", FormMethod.Post))
+                {
+                    <div class="input-group">
+                        <span><i class="fas fa-user" aria-hidden="true"></i></span>
+                        <input type="email" placeholder="Username or Email" required="" name="Email">
+                    </div>
+                    <div class="input-group">
+                        <span><i class="fas fa-key" aria-hidden="true"></i></span>
+                        <input type="Password" placeholder="MatKhau" required="" name="MatKhau">
+                    </div>
+                    <div class="form-row bottom">
+                        <div class="form-check">
+                            <input type="checkbox" id="remenber" name="remenber" value="remenber">
+                            <label for="remenber"> Remember me?</label>
+                        </div>
+                        <a href="#url" class="forgot">Forgot password?</a>
+                    </div>
+                    <button class="btn btn-primaryLogin btn-block" type="submit">Login</button>
+                }
+                <p class="continue"><span>or Login with</span></p>
+                <div class="social-login">
+                    <a href="#facebook">
+                        <div class="facebook">
+                            <span class="fab fa-facebook-f" aria-hidden="true"></span>
+
+                        </div>
+                    </a>
+                    <a href="#twitter">
+                        <div class="twitter">
+                            <span class="fab fa-twitter" aria-hidden="true"></span>
+                        </div>
+                    </a>
+                    <a href="#google">
+                        <div class="google">
+                            <span class="fab fa-google" aria-hidden="true"></span>
+                        </div>
+                    </a>
+                </div>
+                <p class="account">Don't have an account? <a href="~/User/DangKy">Sign up</a></p>
+            </div>
+        </div>
+        <!-- //main content -->
+    </div>
+    <!-- //container -->
+</div>
+
+
+ 
+

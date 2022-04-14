@@ -1,0 +1,123 @@
+﻿@model IEnumerable<BaiTapLon_Web.Models.Entities.Phim>
+
+@{
+    ViewBag.Title = "Danh Mục Phim";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+@*@section header {
+    <link href="~/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer {
+    <script src="~/Public/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}*@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger text-uppercase">Danh Mục Phim</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="@Url.Action("Create","Phim")" class="btn btn-sm btn-success"><i class="fas fa-plus"></i>Thêm</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped" id="myTable">
+                    <thead>
+                        <tr>
+                            @*<th>#</th>*@
+                            <th>
+                                Mã phim
+                            </th>
+                            <th>
+                                Tên Phim
+                            </th>
+                            <th>
+                                Tên Hãng Sản Xuất
+                            </th>
+                            <th>
+                                Tên thể loại
+                            </th>
+                            <th>
+                                Thời lượng
+                            </th>
+                            <th>
+                                Năm sản xuất
+                            </th>
+                            <th>
+                                Ảnh phim
+                            </th>
+                            <th>
+                                Chức năng
+                            </th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @*<td>
+                                        <input type="checkbox" name="checkId" value="" />
+                                    </td>*@
+                                <td>
+                                    @item.MaPhim
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenPhim)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HangSX.TenHangSX)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Theloai.TenTheLoai)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ThoiLuong)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NamSX)
+                                </td>
+                                <td>
+                                    <img style="width:50px;height:75px" src="~/Public/images/AnhPhim/@item.Anh" />
+                                </td>
+                                <td>
+                                    <a href="~/Admin/Phim/Edit/@item.MaPhim" class="btn btn-sm btn-success">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+
+                                    <a href="~/Admin/Phim/Delete/@item.MaPhim" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                    <a href="~/Admin/Phim/Details/@item.MaPhim" class="btn btn-sm btn-info">
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

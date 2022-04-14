@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BaiTapLon_Web.Models.Entities.PhongChieu>
+<div class="category">
+    
+    <div class="content">
+        <div class="title"><label>Tên phòng<span class="text-danger">(*)</span></label></div>
+        @Html.DropDownList("MaPhong", null, htmlAttributes: new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })*@
+    </div>
+</div>
+
+@*@model IEnumerable<BaiTapLon_Web.Models.Entities.PhongChieu>
+<div class="category">
+    <div class="title">Category</div>
+    <div class="content">
+        <ul>
+            @foreach (var product in Model)
+            {
+                <li id="@product.MaPhong"><a>@product.TenPhong</a></li>
+            }
+        </ul>
+        @Html.DropDownList("MaPhong", null, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })
+    </div>
+</div>*@
+

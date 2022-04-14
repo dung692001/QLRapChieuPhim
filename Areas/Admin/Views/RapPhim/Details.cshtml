@@ -1,0 +1,68 @@
+﻿@model BaiTapLon_Web.Models.Entities.RapPhim
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Chi Tiết Thông tin chi nhánh</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="~/Admin/RapPhim/Edit/@Model.MaRap" class="btn btn-sm btn-danger">
+                            <img src="~/Public/images/icon/edit.png" />
+
+                        </a>
+                        <a href="@Url.Action("Index", "RapPhim")" class="btn btn-sm btn-info">
+
+
+                            <img src="~/Public/images/icon/back.png" />    Back
+                        </a>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body my-3 text-center">
+                <table class="table table-bordered">
+
+                    <tr>
+                        <th style="width:250px">Tên trường</th>
+                        <th>Nội dung</th>
+                    </tr>
+                    <tr>
+                        <td> Tên Rạp</td>
+                        <td> @Html.DisplayFor(model => model.TenRap)</td>
+                    </tr>
+                    <tr>
+                        <td> Địa chỉ</td>
+                        <td> @Html.DisplayFor(model => model.DiaChi)</td>
+                    </tr>
+                    <tr>
+                        <td> Số điện thoại</td>
+                        <td> @Html.DisplayFor(model => model.DienThoai)</td>
+                    </tr>
+
+
+                </table>
+
+
+            </div>
+            <!-- /.card-body -->
+
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>

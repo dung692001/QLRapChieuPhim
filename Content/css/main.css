@@ -1,0 +1,372 @@
+
+.header {
+    position: relative;
+}
+
+.navbar-tenkhach {
+    font-size: 1.5rem;
+    line-height: 20px;
+    color: yellowgreen;
+}
+
+.loginInfo {
+    position: absolute;
+    right: 15px;
+    top: 170px;
+    z-index: 1100;
+    background-color:  #efebdb;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    display: none;
+}
+
+.header__navbar , .app__content-nav {
+    padding: 4px 134px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #efebdb;
+}
+
+.header__banner img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header__navbar-list , .app__content-nav-list{
+    list-style-type: none;
+    padding-left: 0;
+    margin: 4px 0 0 0 ;
+    display: flex;
+} 
+
+.header__navbar-item , .app__content-nav-item{
+    font-size: 1.4rem;
+    margin: 0 8px;
+    position: relative;
+    min-height: 26px;
+}
+
+.header__navbar-item span:hover  {
+    font-weight: 500;
+}
+
+.header__navbar-item a  , .app__content-nav-item a{
+    text-decoration: none;
+}
+
+.header__navbar-item span{
+    color: #000;
+}
+
+.app__content-nav {
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+    position: relative;
+}
+
+
+.app__content-nav-list{
+    margin:30px auto 20px;
+}
+
+.app__content-nav-list::before{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #efebdb;
+    right: 3px;
+    top: 8%;
+    transform: translateX(0%);
+}
+
+.app__content-nav-active {
+    font-weight: 700;
+    border-bottom: 2px solid #ccc;
+}
+
+.app__content-nav-item{
+    margin: 0 20px;
+}
+
+.app__content-nav-item span {
+    color: #555;
+    font-size: 1.7rem;
+}
+
+.app__content-nav-item--separate::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 14px;
+    background-color: #e0dac2;
+    right: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.app__content-film_hot {
+    background-color: antiquewhite;
+    font-size: 1.6rem;
+    padding: 5px;
+    text-align: center;
+}
+
+.app__content-film_hot a {
+    color: black;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px solid #ccc;
+}
+
+.card{
+    /* -webkit-box-shadow: 0px 0px 13px 0px ; */
+    /* -moz-box-shadow: 0px 0px 13px 0px ;
+    box-shadow: 0px 0px 13px 0px ; */
+    font-family: 'Dancing Script', cursive;
+    margin-top: 20px;
+}
+
+.app__content-list{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.card-title{
+    font-size: 1.7rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-body p {
+    font-size : 1.2rem;
+}
+
+    .card-body a {
+        margin-top: 10px;
+        font-size: 1.6rem;
+    }
+
+.btn-datve , .btn-chitiet{
+    margin: 0 20px;
+    font-size: 1.2rem;
+    /* margin-top: 20px; */
+}
+
+.card-body {
+    min-height: 130px;
+}
+
+.card-title {
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.card-img-top {
+    height : 300px;
+}
+
+.btn {
+    font-size: 1.3rem;
+    height: 30px;
+    min-width: 60px;
+    background-color:antiquewhite;
+}
+
+.app__content-banner{
+    margin: 40px auto 0px auto;
+}
+
+.content__banner-img img{
+    margin: 15px 0;
+    max-width: 100%;
+  height: auto;
+}
+
+.footer {
+    width: 80%;
+    margin: 15px auto;
+    font-size: 1.5rem;
+}
+
+.footer p {
+    color :#000;
+}
+
+    .footer_link {
+        margin-top: 30px;
+        overflow: hidden;
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        position: relative;
+    }
+
+.footer__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_link li {
+    color: #000;
+    padding: 0 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer_link li:first-child{
+    padding-left: 0px;
+}
+
+.footer_link li a{
+    color: #000;
+    font-size: 1.5rem;
+}
+
+li span:hover {
+    color: #b06f6f;
+}
+
+.company_info {
+    margin-top : 20px;
+}
+/* Authen modal  */
+.auth-form {
+    width: 500px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.auth-form__container {
+    padding: 0 32px;
+}
+
+.auth-form__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-top: 10px;
+}
+
+.auth-form__heading {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.auth-form__switch-btn {
+    font-size: 1.6rem;
+    color: var(--primary-color);    
+    font-weight: 450;
+    cursor: pointer;
+}
+
+.auth-form__input {
+    height: 40px;
+    width: 100%;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    outline: none;
+}
+
+.auth-form__input:focus {
+    border-color: #777;
+}
+
+.auth-form__aside {
+    margin-top: 18px;
+
+}
+
+.auth-form__policy-text {
+    font-size: 1.2rem ;
+    line-height: 1.8rem;
+    text-align: center;
+    padding: 0 12px;
+}
+
+.auth-form__text-link {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.auth-form__controls {
+    margin-top: 80px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-form__controls-back {
+    margin-right: 8px;
+    background-color: var(--white-color);
+}
+
+.auth-form__socials {
+    background-color: #eee;
+    padding: 12px 36px ;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+
+}
+
+.auth-form__socials-icon {
+    font-size: 1.8rem;
+}
+
+.auth-form__socials--facebook {
+    background-color: #3A5A98; 
+    color: var(--white-color);
+}
+
+.auth-form__socials-title {
+    margin: 0 32px;
+}
+
+.auth-form__socials--google {
+    background-color: var(--white-color);
+    color: #666;
+}
+
+.auth-form__help {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-form__link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #939393;
+}
+
+.auth-form__help--separate {
+    display: block;
+    border-left: 1px solid var(--border-color);
+    margin: 0 16px;
+}
+
+.auth-form__help-forgot {
+    color: var(--primary-color);
+}
+
+
+
+

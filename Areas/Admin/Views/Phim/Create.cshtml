@@ -1,0 +1,163 @@
+﻿@model BaiTapLon_Web.Models.Entities.Phim
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+@using (Html.BeginForm("Create", "Phim", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content my-2">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Thêm Danh Mục Phim</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            @*@Html.ActionLink("Create New", "Create", "Phim")*@   
+                            <button class="btn btn-sm btn-success" type="submit" name="create"><i class="fas fa-save"></i></button>
+                            <a href="@Url.Action("Index","Phim")" class="btn btn-sm btn-info"><i class="fas fa-long-arrow-alt-left" s></i></a>
+                        </div>
+                    </div>
+                </div>              
+                    <div class="card-body">
+                        <div class="row">
+                            <div class=" col-md-7">
+                                <div class="form-group">
+                                    
+                                    <label>Tên phim<span class="text-danger">(*)</span></label>
+                                    @Html.EditorFor(model => model.TenPhim, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TenPhim, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tên đạo diễn</label>
+                                    @Html.EditorFor(model => model.DaoDien, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DaoDien, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tên nữ chính</label>
+                                    @Html.EditorFor(model => model.NuDienVienChinh, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NuDienVienChinh, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tên nam chính</label>
+                                    @Html.EditorFor(model => model.NamDienVienChinh, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NamDienVienChinh, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Nội dung</label>
+                                    @Html.EditorFor(model => model.NoiDungChinh, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NoiDungChinh, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Chi phí</label>
+                                    @Html.EditorFor(model => model.TongChiPhi, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TongChiPhi, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Ảnh phim<span class="text-danger">(*)</span></label>
+                                    @* <input type="file" id="Anh" name="uploadhinh" accept="image/*">*@
+                                    @Html.EditorFor(model => model.Anh, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                                    @Html.ValidationMessageFor(model => model.Anh, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Trailer</label>
+                                    @Html.EditorFor(model => model.Trailer, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Trailer, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                            <div class=" col-md-5">
+
+                                <div class="form-group">
+                                    <label>Tên nước sản xuất<span class="text-danger">(*)</span></label>
+                                    @Html.DropDownList("MaNuocSX", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MaNuocSX, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tên hãng<span class="text-danger">(*)</span></label>
+                                    @Html.DropDownList("MaHang", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MaHang, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tên thể loại<span class="text-danger">(*)</span></label>
+                                    @Html.DropDownList("MaTheLoai", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MaTheLoai, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Ngày khởi chiếu<span class="text-danger">(*)</span></label>
+                                    @{
+                                        DateTime ngayHienTai = DateTime.Now;
+                                        <input type="date" name="NgayKhoiChieu" value="@ngayHienTai.ToString("yyyyy-MM-dd")" class="form-control" />
+                                        @Html.ValidationMessageFor(model => model.NgayKhoiChieu, "", new { @class = "text-danger" })
+                                    }
+                                    @*@Html.EditorFor(model => model.NgayKhoiChieu, new { htmlAttributes = new { @class = "form-control" } })*@
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Ngày kết thúc<span class="text-danger">(*)</span></label>
+                                    @{
+                                        //DateTime ngayHienTaii = DateTime.Now;
+                                        <input type="date" name="NgayKetThuc" value="@ngayHienTai.ToString("yyyyy-MM-dd")" class="form-control" />
+                                        @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
+                                    }
+                                    @* @Html.EditorFor(model => model.NgayKetThuc, new { htmlAttributes = new { @class = "form-control" } })*@
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thời lượng<span class="text-danger">(*)</span></label>
+                                        @Html.EditorFor(model => model.ThoiLuong, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.ThoiLuong, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Năm sản xuất<span class="text-danger">(*)</span></label>
+                                    @Html.EditorFor(model => model.NamSX, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NamSX, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                        </div>                                     
+
+                        @*<div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-success" />
+                            </div>
+                        </div>*@
+
+                    </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

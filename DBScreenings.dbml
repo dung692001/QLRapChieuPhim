@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLPhim" Class="DBScreeningsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-FBMKAQ20\KTEAM;Initial Catalog=QLPhim;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLPhimConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BuoiChieu" Member="BuoiChieus">
+    <Type Name="BuoiChieu">
+      <Column Name="MaBuoiChieu" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaPhim" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaRap" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaPhong" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayChieu" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GioChieu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GiaVe" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SoVeDaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TongTien" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

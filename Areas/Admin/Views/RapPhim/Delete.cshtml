@@ -1,0 +1,134 @@
+﻿@model BaiTapLon_Web.Models.Entities.RapPhim
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Bạn có muốn xóa Nước sản xuất này không?</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="@Url.Action("Index", "RapPhim")" class="btn btn-sm btn-info">
+
+
+                            <img src="~/Public/images/icon/back.png" />    Back
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered my-2  text-center">
+
+                    <tr>
+                        <th style="width:250px">Tên trường</th>
+                        <th>Nội dung</th>
+                    </tr>
+                    <tr>
+                        <td> Tên rạp</td>
+                        <td> @Html.DisplayFor(model => model.TenRap)</td>
+                    </tr>
+                    <tr>
+                        <td> Địa chỉ</td>
+                        <td> @Html.DisplayFor(model => model.DiaChi)</td>
+                    </tr>
+                    <tr>
+                        <td> Số điện thoại</td>
+                        <td> @Html.DisplayFor(model => model.DienThoai)</td>
+                    </tr>
+                </table>
+
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        @*<input type="submit" value="Delete" class="btn btn-default" />*@
+                        <button class="btn btn-sm btn-success float-right" type="submit" name="delete" value="Delete">
+                            <img src="~/Public/images/icon/delete.png" />   Delete
+                        </button>
+                    </div>
+
+                }
+
+            </div>
+            <!-- /.card-body -->
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RapPhim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenRap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenRap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DienThoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoPhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TongSoGhe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongSoGhe)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+

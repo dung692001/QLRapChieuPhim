@@ -1,0 +1,144 @@
+﻿@model BaiTapLon_Web.Models.Entities.Phim
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content my-2">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                          <strong>Xóa Phim</strong>
+                            </div>
+                        <div class="col-md-6 text-right">
+                            @*@Html.ActionLink("Create New", "Create", "Phim")*@
+                            <button class="btn btn-sm btn-danger" type="submit" name="Delete"><i class="fas fa-trash"></i></button>
+                            <a href="@Url.Action("Index","Phim")" class="btn btn-sm btn-info"><i class="fas fa-long-arrow-alt-left" s></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body my-3">
+                    <tr class="margin-bottom">
+                        <th>
+                            <img src="~/Public/images/AnhPhim/@Model.Anh" alt="ảnh @Model.TenPhim " class="d-block mx-auto" style="width:133px;height:200px;" />
+                        </th>
+                    </tr>
+
+                    <table class="table table-bordered table-striped">
+                        
+                        <tr>
+                            <th style="width:250px">Tên trường</th>
+                            <th>Nội dung</th>
+                        </tr>
+
+                        <tr>
+                            <td>Tên Phim</td>
+                            <td>@Html.DisplayFor(model => model.TenPhim)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tên Hãng</td>
+                            <td>@Html.DisplayFor(model => model.HangSX.TenHangSX)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Thể loại</td>
+                            <td> @Html.DisplayFor(model => model.Theloai.TenTheLoai)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tên nước</td>
+                            <td>@Html.DisplayFor(model => model.NuocSanXuat.TenNuocSX)</td>
+                        </tr>
+
+                        @{
+                            string NgayKhoiChieuStr = @Model.NgayKhoiChieu.ToString().Split(' ')[0]; //loại bỏ phần time đằng sau
+                            string year = NgayKhoiChieuStr.Split('/')[2];
+                            string month = NgayKhoiChieuStr.Split('/')[0].PadLeft(2, '0'); //Thêm số 0 đằng trc nếu month ko đủ 2 kí tự
+                            string day = NgayKhoiChieuStr.Split('/')[1].PadLeft(2, '0');//Thêm số 0 đằng trc nếu day ko đủ 2 kí tự
+                            string inputDateNgayKhoiChieu = year + "-" + month + "-" + day;
+
+                            <tr>
+                                <td> Ngày khởi chiếu</td>
+                                <td>
+                                    @NgayKhoiChieuStr
+                                </td>
+                            </tr>
+                        }
+                        @{
+                            string NgayKetThucStr = @Model.NgayKetThuc.ToString().Split(' ')[0]; //loại bỏ phần time đằng sau
+                            string yearKT = NgayKhoiChieuStr.Split('/')[2];
+                            string monthKT = NgayKhoiChieuStr.Split('/')[0].PadLeft(2, '0'); //Thêm số 0 đằng trc nếu month ko đủ 2 kí tự
+                            string dayKT = NgayKhoiChieuStr.Split('/')[1].PadLeft(2, '0');//Thêm số 0 đằng trc nếu day ko đủ 2 kí tự
+                            string inputDateNgayKetThuc = yearKT + "-" + monthKT + "-" + dayKT;
+
+                            <tr>
+                                <td> Ngày kết thúc</td>
+                                <td>
+                                    @NgayKetThucStr
+                                </td>
+                            </tr>
+                        }
+
+                        <tr>
+                            <td>Thời lương</td>
+                            <td>@Html.DisplayFor(model => model.ThoiLuong)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Năm sản xuất</td>
+                            <td>@Html.DisplayFor(model => model.NamSX)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Đạo diễn</td>
+                            <td>@Html.DisplayNameFor(model => model.DaoDien)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nữ chính</td>
+                            <td>@Html.DisplayFor(model => model.NuDienVienChinh)</td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td>Nam chính</td>
+                            <td>@Html.DisplayFor(model => model.NamDienVienChinh)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nội dung</td>
+                            <td>@Html.DisplayFor(model => model.NoiDungChinh)</td>
+                        </tr>
+                        <tr>
+                            <td>Chi phí</td>
+                            <td> @Html.DisplayFor(model => model.TongChiPhi)</td>
+                        </tr>
+                        <tr>
+                            <td>Trailer</td>
+                            <td>@Html.DisplayFor(model => model.Trailer)</td>
+                        </tr>
+
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+}

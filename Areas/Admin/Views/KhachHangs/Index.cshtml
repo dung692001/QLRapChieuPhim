@@ -1,0 +1,242 @@
+﻿
+@model BaiTapLon_Web.Models.Entities.KhachHang
+@{
+    ViewBag.TiRPe = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger text-uppercase">Danh sách Khách Hàng</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+
+                        <button class="btn-success" id="btnAdd">
+
+                            <img src="~/Public/images/Icon/plus.png" />
+                        </button>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body text-center">
+
+
+                <table class="table table-bordered table-striped" id="myTable">
+                    <thead>
+
+                        <tr>
+                            <th>
+                                Mã Khách Hàng
+                            </th>
+                            <th>
+                                Tên Khách Hàng
+                            </th>
+                            <th style="width:200px;">
+                                Địa chỉ
+                            </th>
+                            <th>
+                                Điện thoại
+                            </th>
+                            <th>
+                                CCCD
+                            </th>
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblKhachHang">
+                    </tbody>
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalKhachHang">
+    <div class="modal-footer" role="document">
+        <div class="modal-content">
+            <div class="panel panel-primary">
+                <div class="panel-heading ">
+                    <h4 class="panel-tiRPe py-3 text-danger text-uppercase text-center" id="modaltitleKH" style="background-color:bisque; font-family:'Book Antiqua';"></h4>
+                </div>
+                <div class="container ">
+                    <div class="row text-center">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label style="margin-right:50px;" id="lbmakh">Mã Khách Hàng<span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control text-center " style="width:300px; margin-left:100px;" id="makh" placeholder="Mã Khách Hàng  " />
+                                <span id="makh_err" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+
+                                <label style="margin-right:50px;">Tên Khách Hàng<span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control text-center" style="width:300px; margin-left:100px;" id="tenkh" placeholder="Tên Khách Hàng" />
+                                <span id="tenkh_err" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label style="margin-right:50px;">Số điện thoại<span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control text-center" style="width:300px; margin-left:100px;" id="sdt" placeholder="Số điện thoại" />
+                                <span id="sdt_err" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+
+                                <label style="margin-right:50px;">Địa chỉ</label>
+                                <textarea class="form-control text-center" style="width:300px;height:150px; margin-left:100px;" id="diachi" placeholder="Địa chỉ"></textarea>
+                                @* <input type="text" class="form-control text-center" style="width:300px; margin-left:100px;" id="diachi" placeholder="Địa chỉ" />*@
+                                <span id="diachi_err" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label style="margin-right:50px;">Ngày Sinh</label>
+                                @*<input type="text" name="NgaySinh" style="width:300px; margin-left:100px;" id="ngaysinh" class="form-control" />*@
+                                <input type="date" name="bday" min="1980-01-01" style="width:300px; margin-left:100px;" id="ngaysinh" class="form-control" />
+                                <span id="ngaysinh_err" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+
+
+                                <label style="margin-right:50px;">Email<span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control text-center" style="width:300px; margin-left:100px;" id="email" placeholder="Email" />
+                                <span id="email_err" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+
+                                <label style="margin-right:50px;">CCCD<span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control text-center" style="width:300px; margin-left:100px;" id="cccd" placeholder="CCCD" />
+                                <span id="cccd_err" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+
+                                <label style="margin-right:50px;">Giới tính</label><br />
+                                <input type="radio" id="Nam" name="Sex" ng-model='mValue' value="Nam" style="margin-right:20px;">
+                                <label for="Nam" style="margin-right:50px;">Nam</label>
+                                <input type="radio" id="Nu" name="Sex" ng-model='mValue' value="Nu" style="margin-right:10px;">
+                                <label for="Nu" style="margin-right:100px;">Nữ</label>
+                                <span id="gioitinh_err" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+
+                                <label style="margin-right:50px;">Password<span class="text-danger">(*)</span></label>
+                                <input type="password" class="form-control text-center" style="width:300px; margin-left:100px;" id="mk" placeholder="Mật khẩu" />
+                                <span id="mk_err" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnSubmitAdd" style="margin-right:120px;">Xác nhận</button>
+                <button type="button" class="btn btn-success" id="btnSubmitEdit" style="margin-right:120px;">Xác nhận</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-right:500px;">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalChiTietKH">
+    <div class="modal-footer" role="document">
+        <div class="modal-content ">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="color:aqua;">
+                    <h4 class="panel-title py-3 text-danger text-uppercase text-center" style="background-color:cornsilk;">Chi tiết Khách Hàng</h4>
+                </div>
+                <div class="container py-3">
+                    <table class="table table-bordered text-center ">
+                        <thead>
+                            <tr>
+                                <th>Mã Khách Hàng</th>
+                                <th>Tên Khách Hàng </th>
+                                <th style="width:200px">Địa chỉ </th>
+                                <th>Số điện thoại </th>
+                                <th>Email </th>
+                                <th>Ngày Sinh</th>
+                                <th>CCCD </th>
+                                <th>Giới Tính </th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="text-center" id="tblChiTiet">
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modalXoa">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="panel panel-default text-center" style="font-family:Bahnschrift">
+                <div class="panel-heading">
+                    <h4 class="panel-tiRPe py-3 text-danger text-uppercase text-center" style="background-color:bisque;">Xóa</h4>
+
+                </div>
+
+                <p>Bạn có muốn xóa Khách Hàng này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" style="margin-right:90px;" id="btnDelete">Xác nhận</button>
+                <button type="button" class="btn btn-secondary" style="margin-right:120px;" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalHienThiLoi">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="panel panel-default text-center" style="font-family:Bahnschrift">
+                <div class="panel-heading">
+                    <h4 class="panel-tiRPe py-3 text-danger text-uppercase text-center" style="background-color:bisque;">Thông báo</h4>
+
+                </div>
+
+                <p>Mã Khách Hàng này đã tồn tại!</p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" style="margin-right:220px;" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+
+    <script src="~/Public/js/jqueryKhachHang.js"></script>
+}
+
